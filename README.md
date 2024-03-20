@@ -12,7 +12,7 @@ _Note: results will differ based on each Spotify account_
 
 2. In Python, install `spotipy` using pip:
 ```python
-pip install google-api-python-client
+pip install spotipy
 ```
 or alternatively,
 ```python
