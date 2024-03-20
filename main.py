@@ -2,10 +2,15 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 
+CLIENT_ID = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+CLIENT_SECRET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+REDIRECT_URI = 'https://localhost:9999/callback'
+
+
 if __name__ == '__main__':
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id='ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-                                                   client_secret='12345678901234567890',
-                                                   redirect_uri='https://localhost:9999/callback'))
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
+                                                   client_secret=CLIENT_SECRET,
+                                                   redirect_uri=REDIRECT_URI))
 
     song = input('What song would you like to search for? ')
     print(f'\nSearching Spotify for {song}...\n')
