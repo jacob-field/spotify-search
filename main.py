@@ -1,5 +1,6 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import sys
 
 
 CLIENT_ID = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -8,9 +9,14 @@ REDIRECT_URI = 'https://localhost:9999/callback'
 
 
 if __name__ == '__main__':
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
-                                                   client_secret=CLIENT_SECRET,
-                                                   redirect_uri=REDIRECT_URI))
+    try:
+        sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
+                                                        client_secret=CLIENT_SECRET,
+                                                        redirect_uri=REDIRECT_URI))
+    except spotipy.oauth2.SpotifyOauthError:
+        sys.exit('[!] Failed to connect to Spotify account')
+
+    print(f"Successfully connected to {sp.current_user()['display_name']}'s Spotify Account")
 
     song = input('What song would you like to search for? ')
     print(f'\nSearching Spotify for {song}...\n')
