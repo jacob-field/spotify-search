@@ -29,6 +29,7 @@ _Tip: your developer project will be located on the [developer dashboard](https:
 
 ## Example Output
 ```
+Successfully connected to Jacob's Spotify Account
 What song would you like to search for? Happy
 
 Searching Spotify for Happy...
