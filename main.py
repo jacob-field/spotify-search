@@ -13,10 +13,10 @@ if __name__ == '__main__':
         sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
                                                         client_secret=CLIENT_SECRET,
                                                         redirect_uri=REDIRECT_URI))
+        print(f"Successfully connected to {sp.current_user()['display_name']}'s Spotify Account")
     except spotipy.oauth2.SpotifyOauthError:
-        sys.exit('[!] Failed to connect to Spotify account')
-
-    print(f"Successfully connected to {sp.current_user()['display_name']}'s Spotify Account")
+        sys.exit('[!] Failed to connect to Spotify account\n'
+                 'Please ensure your client IDs, client secrets, and redirect URIs match')
 
     song = input('What song would you like to search for? ')
     print(f'\nSearching Spotify for {song}...\n')
