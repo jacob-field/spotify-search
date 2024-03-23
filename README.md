@@ -16,7 +16,7 @@ pip install spotipy
 ```
 or alternatively,
 ```python
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 3. In `main.py`, change the following variables `API_KEY` to your developer project's keys:
